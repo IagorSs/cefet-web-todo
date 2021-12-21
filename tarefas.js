@@ -31,11 +31,12 @@ const resetListaTarefas = () => listaTarefas.innerHTML = "";
 resetListaTarefas();
 tarefas.forEach(item => item.adicionaNaPagina());
 
-const incluirNovaTarefa = document.getElementById('incluir-nova-tarefa');
+const incluirNovaTarefaForm = document.getElementById('nova-tarefa');
 const novaTarefaNome = document.getElementById('nova-tarefa-nome');
 const novaTarefaCategoria = document.getElementById('nova-tarefa-categoria');
 
-incluirNovaTarefa.addEventListener('click', () => {
+incluirNovaTarefaForm.addEventListener('submit', (e) => {
+  e.preventDefault();
   const tarefa = new Tarefa(novaTarefaNome.value, novaTarefaCategoria.value);
   tarefas.push(tarefa);
 
