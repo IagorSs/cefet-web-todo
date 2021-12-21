@@ -7,6 +7,12 @@ class Tarefa {
     this.realizada = realizada;
   }
 
+  clickHandler(element) {
+    this.realizada = !this.realizada;
+
+    element.classList.toggle('marcado');
+  }
+
   adicionaNaPagina(retido=false) {
     const itemTarefa = document.createElement('li');
     itemTarefa.classList.add('item-tarefa');
@@ -15,6 +21,8 @@ class Tarefa {
     
     if(this.realizada) itemTarefa.classList.add('marcado');
     if(retido) itemTarefa.classList.add(`retido-no-filtro`);
+
+    itemTarefa.addEventListener('click', () => this.clickHandler(itemTarefa));
 
     Tarefa.#listaTarefas.appendChild(itemTarefa);
   }
