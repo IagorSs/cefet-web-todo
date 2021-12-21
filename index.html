@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Procrastinator</title>
-    <link rel="stylesheet" href="tarefas.css">
-    <link rel="shortcut icon" href="imgs/icone.png">
+    <link rel="stylesheet" href="tarefas.css" />
+    <link rel="shortcut icon" href="imgs/icone.png" />
     <script src="tarefas.js" defer></script>
   </head>
   <body>
     <header>
-      <h1 id="marca">Tarefas a <br>Procrastinar</h1>
+      <h1 id="marca">Tarefas a <br />Procrastinar</h1>
     </header>
 
     <main id="app">
       <div id="nova-tarefa">
-        <input type="text" required id="nova-tarefa-nome" autofocus placeholder="Digite o que você deseja procrastinar">
+        <input
+          type="text"
+          required
+          id="nova-tarefa-nome"
+          autofocus
+          placeholder="Digite o que você deseja procrastinar"
+        />
 
         <select id="nova-tarefa-categoria">
           <option value="lazer">Lazer</option>
@@ -30,7 +36,8 @@
       </ul>
 
       <div id="filtros">
-        <label>Mostrar apenas categoria:
+        <label
+          >Mostrar apenas categoria:
           <select id="filtro-de-categoria">
             <option value="">Todas</option>
             <option value="lazer">Lazer</option>
