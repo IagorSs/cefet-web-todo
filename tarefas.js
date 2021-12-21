@@ -1,5 +1,5 @@
 class Tarefa {
-  #listaTarefas = document.getElementById('lista-tarefas');
+  static #listaTarefas = document.getElementById('lista-tarefas');
 
   constructor(nome, categoria, realizada=false) {
     this.nome = nome;
@@ -15,7 +15,7 @@ class Tarefa {
 
     if(this.realizada) itemTarefa.classList.add('marcado');
 
-    this.#listaTarefas.appendChild(itemTarefa);
+    Tarefa.#listaTarefas.appendChild(itemTarefa);
   }
 }
 
