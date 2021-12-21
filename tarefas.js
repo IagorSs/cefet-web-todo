@@ -7,13 +7,14 @@ class Tarefa {
     this.realizada = realizada;
   }
 
-  adicionaNaPagina() {
+  adicionaNaPagina(retido=false) {
     const itemTarefa = document.createElement('li');
     itemTarefa.classList.add('item-tarefa');
     itemTarefa.classList.add(`categoria-${this.categoria}`);
     itemTarefa.innerText = this.nome;
-
+    
     if(this.realizada) itemTarefa.classList.add('marcado');
+    if(retido) itemTarefa.classList.add(`retido-no-filtro`);
 
     Tarefa.#listaTarefas.appendChild(itemTarefa);
   }
@@ -25,8 +26,9 @@ const tarefas = [
 ];
 
 const listaTarefas = document.getElementById('lista-tarefas');
-listaTarefas.innerHTML = "";
+const resetListaTarefas = () => listaTarefas.innerHTML = "";
 
+resetListaTarefas();
 tarefas.forEach(item => item.adicionaNaPagina());
 
 const incluirNovaTarefa = document.getElementById('incluir-nova-tarefa');
@@ -42,3 +44,14 @@ incluirNovaTarefa.addEventListener('click', () => {
   novaTarefaNome.value = "";
   novaTarefaNome.focus();
 });
+
+const filtroDeCategoria = document.getElementById('filtro-de-categoria');
+filtroDeCategoria.addEventListener('change', ({ target: { value } }) => {
+  resetListaTarefas();
+
+  tarefas.forEach(tarefa => {
+    const isRetido = value !== '' ? tarefa.categoria !== value : false;
+
+    tarefa.adicionaNaPagina(isRetido);
+  });
+})
