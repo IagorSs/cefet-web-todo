@@ -28,3 +28,17 @@ const listaTarefas = document.getElementById('lista-tarefas');
 listaTarefas.innerHTML = "";
 
 tarefas.forEach(item => item.adicionaNaPagina());
+
+const incluirNovaTarefa = document.getElementById('incluir-nova-tarefa');
+const novaTarefaNome = document.getElementById('nova-tarefa-nome');
+const novaTarefaCategoria = document.getElementById('nova-tarefa-categoria');
+
+incluirNovaTarefa.addEventListener('click', () => {
+  const tarefa = new Tarefa(novaTarefaNome.value, novaTarefaCategoria.value);
+  tarefas.push(tarefa);
+
+  tarefa.adicionaNaPagina();
+
+  novaTarefaNome.value = "";
+  novaTarefaNome.focus();
+});
